@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -16,8 +17,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .password("{noop}password")
                 .roles("USER")
                 .and()
+                .passwordEncoder(NoOpPasswordEncoder.getInstance())
                 .withUser("admin")
-                .password("{noop}password")
+                .password("password")
                 .roles("ADMIN")
                 ;
         // allow to retain credentials to be passed on via password grant

@@ -60,3 +60,23 @@
         return this.restTemplate.exchange(request, String.class).getBody();
     }
   ```
+
+## TRoubleshooting
+
+### Password encoder problems 
+
+* [spring doc password-storage-format](https://spring.io/blog/2017/11/01/spring-security-5-0-0-rc1-released#password-storage-format)
+  * Reverting to Previous Behavior (insecure)
+    * from
+      ```java
+      auth
+        .inMemoryAuthentication()
+            .withUser("user").password("password").roles("USER");
+      ```
+    * to
+      ```java
+        auth
+        .inMemoryAuthentication()
+            .passwordEncoder(NoOpPasswordEncoder.getInstance())
+            .withUser("user").password("password").roles("USER");
+      ```

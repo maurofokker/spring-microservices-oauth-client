@@ -51,6 +51,8 @@ public class SpringMicroservicesOauthClientApplication {
     @RequestMapping("/protectedService")
     public String getInfoFromProtectedService(Principal principal) throws URISyntaxException {
         User user = (User) ((Authentication)principal).getPrincipal();
+        System.out.println("username: "+user.getUsername());
+        System.out.println("password: "+user.getPassword());
         // URI of the protected resource on the resource server that we need to access
         URI uri = new URI("http://localhost:9090/resource/endpoint");
         // create and fire the request to the protected resource
