@@ -2,6 +2,7 @@
 
 * part of [microservices demo](https://github.com/maurofokker/microservices-demo)
 * [oauth configuration server demo](https://github.com/maurofokker/spring-microservices-oauth-server)
+* [oauth configuration server resource](https://github.com/maurofokker/spring-microservices-oauth-resource)
 
 ## Configuration
 

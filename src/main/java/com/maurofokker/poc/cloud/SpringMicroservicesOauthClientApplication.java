@@ -40,7 +40,7 @@ public class SpringMicroservicesOauthClientApplication {
         // contain information such clients ID, clients secret or grant type all the information
         // required to make appropriate oauth calls that will allow to access protected resources
         ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
-        details.setAccessTokenUri("http://localhost:9090/oauth/token"); // go here to make the initial request for an access token
+        details.setAccessTokenUri("http://localhost:7070/oauth/token"); // go here to make the initial request for an access token
         details.setClientId("webapp"); // sets the client id configured in the authorization server
         details.setClientSecret("secret"); //
         details.setGrantType("password");
