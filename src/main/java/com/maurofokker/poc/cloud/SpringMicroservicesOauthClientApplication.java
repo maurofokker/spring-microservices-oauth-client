@@ -36,7 +36,7 @@ public class SpringMicroservicesOauthClientApplication {
     }
 
     @Bean
-    protected OAuth2ProtectedResourceDetails resource() {
+        protected OAuth2ProtectedResourceDetails resource() {
         // contain information such clients ID, clients secret or grant type all the information
         // required to make appropriate oauth calls that will allow to access protected resources
         ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
@@ -47,7 +47,7 @@ public class SpringMicroservicesOauthClientApplication {
         return details;
     }
 
-    // Principal class provide information about the user
+    // Principal class provide information about the user and is injected by Spring
     @RequestMapping("/protectedService")
     public String getInfoFromProtectedService(Principal principal) throws URISyntaxException {
         User user = (User) ((Authentication)principal).getPrincipal();
