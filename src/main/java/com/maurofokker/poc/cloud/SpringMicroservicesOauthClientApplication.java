@@ -40,7 +40,7 @@ public class SpringMicroservicesOauthClientApplication {
         // contain information such clients ID, clients secret or grant type all the information
         // required to make appropriate oauth calls that will allow to access protected resources
         ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
-        details.setAccessTokenUri("http://localhost:7070/oauth/token"); // go here to make the initial request for an access token
+        details.setAccessTokenUri("http://localhost:9090/oauth/token"); // go here to make the initial request for an access token
         details.setClientId("webapp"); // sets the client id configured in the authorization server
         details.setClientSecret("secret"); //
         details.setGrantType("password");
@@ -54,7 +54,7 @@ public class SpringMicroservicesOauthClientApplication {
         System.out.println("username: "+user.getUsername());
         System.out.println("password: "+user.getPassword());
         // URI of the protected resource on the resource server that we need to access
-        URI uri = new URI("http://localhost:9090/resource/endpoint");
+        URI uri = new URI("http://localhost:7070/resource/endpoint");
         // create and fire the request to the protected resource
         RequestEntity<String> request = new RequestEntity<String>(HttpMethod.POST, uri);
         AccessTokenRequest accessTokenRequest = this.restTemplate.getOAuth2ClientContext().getAccessTokenRequest();
